@@ -5,6 +5,7 @@ import {DragDropContext, Droppable} from "react-beautiful-dnd";
 import TrList from "../components/TrList";
 import TrCreate from "../components/TrCreate";
 import {setActiveBoard} from "../store/actions/boardActions";
+import st from '../assets/styles/myboard.module.css'
 
 const MyBoard = (props) => {
   React.useEffect(() => {
@@ -40,41 +41,47 @@ const MyBoard = (props) => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div>
-        <h3>{board.title}</h3>
+      <div className={st.wrapper}>
+        <div>
+          <h3>{board.title}</h3>
+        </div>
+        <Droppable
+          droppableId="all-lists"
+          direction="horizontal"
+          type="list">
+          {
+            provided => (
+              <div
+                className={st.lists}
+                {...provided.droppableProps}
+                ref={provided.innerRef}>
+                <div className={st.lists_item}>
+                {
+                  listOrder.map((listId, index) => {
+                    const list = props.lists[listId]
+                    if (list) {
+                      const listRecords = list.records.map((recordId) => props.records[recordId])
+                      return (
+                        <div className={st.list} key={list.id} >
+                          <TrList
+                            listId={list.id}
+                            title={list.title}
+                            records={listRecords}
+                            index={index}
+                          />
+                        </div>
+                      )
+                    }
+                  })
+                }
+                {provided.placeholder}
+                <TrCreate list/>
+                </div>
+              </div>
+            )
+          }
+        </Droppable>
       </div>
-      <Droppable
-        droppableId="all-lists"
-        direction="horizontal"
-        type="list">
-        {
-          provided => (
-            <div
-              {...provided.droppableProps}
-              ref={provided.innerRef}>
-              {
-                listOrder.map((listId, index) => {
-                  const list = props.lists[listId]
-                  if (list) {
-                    const listRecords = list.records.map((recordId) => props.records[recordId])
-                    return (
-                      <TrList
-                        listId={list.id}
-                        key={list.id}
-                        title={list.title}
-                        records={listRecords}
-                        index={index}
-                      />
-                    )
-                  }
-                })
-              }
-              {provided.placeholder}
-              <TrCreate list/>
-            </div>
-          )
-        }
-      </Droppable>
     </DragDropContext>
   );
 };

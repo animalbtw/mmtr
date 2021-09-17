@@ -20,7 +20,7 @@ const TrList = (props) => {
                     <div
                       {...provided.droppableProps}
                       ref={provided.innerRef}>
-                      <h4>{props.title}</h4>
+                      <h4 style={{textAlign:'center'}}>{props.title}</h4>
                       {
                         props.records.map((rec, index) => (
                             <TrRecord

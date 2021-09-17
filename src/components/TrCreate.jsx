@@ -3,6 +3,7 @@ import TrForm from "./TrForm";
 import {connect} from "react-redux";
 import {createList} from "../store/actions/listActions";
 import {createRecord} from "../store/actions/recordActions";
+import st from '../assets/styles/trcreate.module.css'
 
 const TrCreate = (props) => {
   const [open, setOpen] = React.useState(false)
@@ -12,25 +13,34 @@ const TrCreate = (props) => {
     if (text) {
       props.dispatch(createList(text))
       setText('')
+      setOpen(false)
     }
   }
+
   const handleRecordCreate = () => {
     if (text) {
       props.dispatch(createRecord(text, props.listId))
       setText('')
+      setOpen(false)
     }
   }
 
   return (
-    <div>
+    <div
+      className={st.wrapper}
+    >
       {
         open ? (
           <TrForm
+            listId={props.listId}
+            setText={setText}
+            list={props.list}
             text={text}
             onChange={e => setText(e.target.value)}
             closeForm={() => setOpen(false)}
           >
             <button
+              className={st.actionButtons}
               onClick={props.list ? handleListCreate: handleRecordCreate}
             >
               {
@@ -39,7 +49,9 @@ const TrCreate = (props) => {
             </button>
           </TrForm>
         ) : (
-          <button onClick={() => setOpen(true)}>
+          <button
+            className={st.openButtons}
+            onClick={() => setOpen(true)}>
             {
               props.list ? 'Добавить список' : 'Добавить запись'
             }

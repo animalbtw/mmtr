@@ -1,0 +1,23 @@
+.wrapper {
+    width: 100%;
+}
+
+.wrapper_header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e7e7e7;
+}
+
+.wrapper_content {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.wrapper_content_container {
+    width: 75%;
+    padding-top: 20px;
+}
