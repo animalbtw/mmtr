@@ -1,10 +1,12 @@
 import * as React from 'react';
-import {connect} from "react-redux";
+import {connect, useSelector} from "react-redux";
 import {Draggable, Droppable} from "react-beautiful-dnd";
 import TrRecord from "./TrRecord";
 import TrCreate from "./TrCreate";
 
 const TrList = (props) => {
+  const records = useSelector(state => state.records)
+  console.log(records)
   return (
     <Draggable draggableId={props.listId} index={props.index}>
       {
@@ -22,13 +24,15 @@ const TrList = (props) => {
                       ref={provided.innerRef}>
                       <h4 style={{textAlign:'center'}}>{props.title}</h4>
                       {
-                        props.records.map((rec, index) => (
+                        records.map((rec, index) => (
                             <TrRecord
                               key={rec.id}
                               text={rec.text}
                               id={rec.id}
                               index={index}
-                              listId={props.listId}/>
+                              listId={props.listId}
+                              isChecked={rec.isChecked}
+                            />
                           )
                         )
                       }

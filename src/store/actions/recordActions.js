@@ -1,19 +1,20 @@
-import uuid from 'react-uuid';
+import uuid from 'react-uuid'
 
-export const createRecord = (text, listId) => {
-  const id = uuid()
+export const add_record = (listId, text) => {
   return {
-    type: 'CREATE_RECORD',
-    payload: { text, listId, id }
+    type: 'ADD_RECORD',
+    payload: {
+      id: uuid(),
+      text,
+      listId,
+      isComplete: true
+    }
   }
 }
 
-export const recordIsActive = (recordId, isCheckedFlag) => {
+export const isChecked = (recordId) => {
   return {
-    type: 'RECORD_IS_ACTIVE',
-    payload: {
-      recordId,
-      isCheckedFlag
-    }
+    type: 'COMPLETE_RECORD',
+    payload: {recordId}
   }
 }

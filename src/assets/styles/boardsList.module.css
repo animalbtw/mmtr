@@ -1,0 +1,30 @@
+.emptyDeckList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+}
+
+.board {
+    word-break: break-word;
+    color: black;
+    font-family: Montserrat-Bold, serif;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 150px;
+    height: 75px;
+    box-shadow: 0 0 6px 1px #E0C097;
+    border-radius: 10px;
+    background: #F3F0D7;
+    padding: 10px;
+}

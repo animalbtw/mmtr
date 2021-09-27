@@ -3,16 +3,13 @@ import {Draggable} from "react-beautiful-dnd";
 import {connect} from "react-redux";
 import {recordIsActive} from "../store/actions/recordActions";
 import st from '../assets/styles/trrecord.module.css'
-import {createList} from "../store/actions/listActions";
 
 const TrRecord = (props) => {
-  const [isCheckedFlag, setIsCheckedFlag] = React.useState(props.records[props.id].isChecked)
 
-  React.useEffect(() => {
+  const setIsChecked = () => {
     const {dispatch} = props
-    dispatch(recordIsActive(props.id, isCheckedFlag))
-  }, [isCheckedFlag])
-
+    dispatch(recordIsActive(props.id, props.isChecked))
+  }
 
   return (
     <Draggable draggableId={props.id} index={props.index}>
@@ -26,11 +23,11 @@ const TrRecord = (props) => {
             <div>
               {props.text}
             </div>
-            <div className={st.wrapper_box}>
+            <div className={st.actionBox}>
               <input
                 type="checkbox"
-                onChange={e => setIsCheckedFlag(e.target.checked)}
-                defaultChecked={props.records[props.id].isChecked}
+                onChange={(e) => setIsChecked(e)}
+                defaultChecked={props.isChecked}
               />
             </div>
           </div>

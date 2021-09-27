@@ -1,19 +1,19 @@
-import uuid from 'react-uuid';
+import uuid from 'react-uuid'
 
-export const createBoard = title => {
+export const add_board = (boardHeader) => {
   return {
-    type: 'CREATE_BOARD',
+    type: 'ADD_BOARD',
     payload: {
-      title,
-      id: uuid()
+      id: uuid(),
+      boardHeader,
+      lists: []
     }
   }
 }
 
-export const setActiveBoard = id => {
+export const setCurrentBoard = (id) => {
   return {
-    type: 'SET_ACTIVE_BOARD',
+    type: 'SET_CURRENT_BOARD',
     payload: id
   }
 }
-

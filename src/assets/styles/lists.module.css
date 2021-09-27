@@ -1,0 +1,43 @@
+.lists {
+    margin-right: 10px;
+}
+
+.wrapper {
+    width: 250px;
+    background: #F3F0D7;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: center;
+    flex-wrap: nowrap;
+    padding: 10px;
+    height: fit-content;
+}
+
+.header {
+    padding: 10px 8px;
+
+}
+
+.action {
+    padding: 10px;
+    position: relative;
+}
+
+.list {
+    padding: 10px;
+    position: relative;
+}
+
+.btn {
+    padding: 10px;
+    font-family: Montserrat-Medium, serif;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #CEE5D0;
+}

@@ -8,7 +8,12 @@ const AppRoute = () => {
     <Switch>
       {
         publicRoutes.map(({path, component}, index) => (
-          <Route path={path} component={component} exact key={index} />
+          <Route
+            path={path}
+            component={component}
+            exact
+            key={index}
+          />
         ))
       }
       <Redirect to={HOME_ROUTE} />

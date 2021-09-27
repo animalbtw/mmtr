@@ -1,0 +1,52 @@
+.wrapper {
+    width: 100%;
+}
+
+.actions {
+
+}
+
+.tArea {
+    resize: none;
+    width: 100%;
+    min-height: 75px;
+    font-size: 16px;
+    box-shadow: 0 0 3px #000000;
+    border: none;
+}
+
+.tArea:focus {
+    outline: none;
+}
+
+.buttons {
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.apply {
+    padding: 10px;
+    font-family: Montserrat-Medium, serif;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #CEE5D0;
+    margin-right: 5px;
+    width: 100%;
+}
+
+.close {
+    padding: 10px;
+    font-family: Montserrat-Medium, serif;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #FF7878;
+
+}

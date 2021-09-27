@@ -31,7 +31,7 @@ const TrForm = ({list, closeForm, text, onChange, children, dispatch, setText, l
       </div>
       <div className={st.btns}>
         {children}
-        <button className={st.btn_close} onMouseDown={closeForm}>Закрыть</button>
+        <button className={st.buttonClose} onMouseDown={closeForm}>Закрыть</button>
       </div>
     </div>
   );

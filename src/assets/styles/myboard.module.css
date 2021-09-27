@@ -1,23 +1,23 @@
-.wrapper {
-    min-height: 150px;
+/*.wrapper {*/
+/*    min-height: 150px;*/
 
-}
+/*}*/
 
-.lists {
+/*.lists {*/
 
-}
+/*}*/
 
-.lists_item {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-}
+/*.listsItems {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(4, 1fr);*/
+/*    grid-gap: 10px;*/
+/*}*/
 
-.list {
-    width: 300px;
-    padding: 10px 0 0 0;
-    border-radius: 5px;
-    background: #f3f3f3;
-    margin: 0 auto;
-    height: fit-content;
-}
+/*.list {*/
+/*    width: 300px;*/
+/*    padding: 10px 0 0 0;*/
+/*    border-radius: 5px;*/
+/*    background: #f3f3f3;*/
+/*    margin: 0 auto;*/
+/*    height: fit-content;*/
+/*}*/

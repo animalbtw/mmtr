@@ -1,6 +1,6 @@
-export const setCurrentBoard = (state = null, action) => {
+export const currentBoardReducer = (state = null, action) => {
   switch (action.type) {
-    case 'SET_ACTIVE_BOARD': {
+    case 'SET_CURRENT_BOARD': {
       return action.payload
     }
     default:

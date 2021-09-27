@@ -1,0 +1,30 @@
+.wrapper {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #d7cfba;
+    border-radius: 3px;
+    padding: 10px;
+    width: 200px;
+}
+
+.header {
+    word-break: break-all;
+    width: 100%;
+}
+
+.completeHeader {
+    text-decoration: line-through;
+    word-break: break-all;
+    width: 100%;
+}
+
+.action {
+
+}
+
+.input {
+
+}

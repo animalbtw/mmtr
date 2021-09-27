@@ -1,40 +1,73 @@
 import uuid from 'react-uuid'
 
-export const createList = (title) => {
-  return(dispatch, getState) => {
-    const boardId = getState().activeBoard
+export const add_list = (listHeader) => {
+  return (dispatch, getState) => {
+    const boardId = getState().currentBoard
     dispatch({
-      type: 'CREATE_LIST',
+      type: 'ADD_LIST',
       payload: {
-        title,
+        id: uuid(),
+        listHeader,
         boardId,
-        id: uuid()
+        records: []
       }
     })
   }
 }
 
-export const sort = (
+export const dragAndDrop = (
   droppableIdStart,
   droppableIdEnd,
   droppableIndexStart,
   droppableIndexEnd,
   draggableId,
-  type
 ) => {
-  return (dispatch, getState) => {
-    const boardId = getState().activeBoard
-    dispatch({
-      type: 'DRAG',
-      payload: {
-        droppableIdStart,
-        droppableIdEnd,
-        droppableIndexStart,
-        droppableIndexEnd,
-        draggableId,
-        type,
-        boardId
-      }
-    })
+  return {
+    type: 'DRAG_AND_DROP',
+    payload: {
+      droppableIdStart,
+      droppableIdEnd,
+      droppableIndexEnd,
+      droppableIndexStart,
+      draggableId,
+    }
+  }
+}
+
+export const dndFromListToList = (
+  droppableIdStart,
+  droppableIdEnd,
+  droppableIndexStart,
+  droppableIndexEnd,
+  draggableId,
+) => {
+  return {
+    type: 'DND_FROM_LIST_TO_LIST',
+    payload: {
+      droppableIdStart,
+      droppableIdEnd,
+      droppableIndexEnd,
+      droppableIndexStart,
+      draggableId,
+    }
+  }
+}
+
+export const dndInsideList = (
+  droppableIdStart,
+  droppableIdEnd,
+  droppableIndexStart,
+  droppableIndexEnd,
+  draggableId,
+) => {
+  return {
+    type: 'DND_INSIDE',
+    payload: {
+      droppableIdStart,
+      droppableIdEnd,
+      droppableIndexStart,
+      droppableIndexEnd,
+      draggableId,
+    }
   }
 }
